@@ -43,10 +43,9 @@ export const CharactersList: React.FC = () => {
 
   const router = useRouter();
 
-
   const handleGoBack = () => {
-    dispatch(resetState()); 
-    router.push("/"); 
+    dispatch(resetState());
+    router.push("/");
   };
 
   return (
