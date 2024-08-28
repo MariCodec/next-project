@@ -55,16 +55,15 @@ const characterSlice = createSlice({
       .addCase(fetchCharacters.pending, (state) => {
         state.loading = true;
         state.error = false;
-        state.characters = []; // Очищуємо попередні дані під час нового запиту
+        state.characters = [];
       })
       .addCase(fetchCharacters.fulfilled, (state, action) => {
         state.loading = false;
         state.characters = action.payload.results;
         state.pageCount = action.payload.info.pages;
 
-        // Якщо персонажів не знайдено
         if (action.payload.results.length === 0) {
-          state.error = true; // Встановлюємо помилку як істинну
+          state.error = true;
         }
       })
       .addCase(fetchCharacters.rejected, (state) => {
@@ -73,22 +72,6 @@ const characterSlice = createSlice({
       });
   },
 });
-//     builder
-//       .addCase(fetchCharacters.pending, (state) => {
-//         state.loading = true;
-//         state.error = false;
-//       })
-//       .addCase(fetchCharacters.fulfilled, (state, action) => {
-//         state.loading = false;
-//         state.characters = action.payload.results;
-//         state.pageCount = action.payload.info.pages;
-//       })
-//       .addCase(fetchCharacters.rejected, (state, action) => {
-//         state.loading = false;
-//         state.error = false;
-//       });
-//   },
-// });
 
 export const { setPage, setQuery, resetState } = characterSlice.actions;
 
