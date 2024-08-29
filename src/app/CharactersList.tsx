@@ -26,7 +26,7 @@ export const CharactersList: React.FC = () => {
     (state: RootState) => state.characters
   );
   const debouncedQuery = useDebounce(query, 700);
-  console.log(page);
+
 
   useEffect(() => {
     dispatch(fetchCharacters({ query: debouncedQuery, page }));
@@ -34,7 +34,7 @@ export const CharactersList: React.FC = () => {
 
   const handlePageChange = (selectedPage: number) => {
     dispatch(setPage(selectedPage + 1));
-    console.log(selectedPage);
+  
   };
   const handleSearchChange = (queryValue: string) => {
     setInputValue(queryValue);

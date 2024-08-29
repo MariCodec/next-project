@@ -15,8 +15,8 @@ export const Header: React.FC<Props> = ({ onSearch }) => {
   const router = useRouter();
   const { user } = useAuthorization();
 
-  const userPhotoURL = user?.photoURL;
-  console.log(userPhotoURL);
+  const userPhotoURL = user?.photoURL || "/notExisting.png";
+
   const handleSignOut = async () => {
     try {
       await signOut(auth);
