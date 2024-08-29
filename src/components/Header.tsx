@@ -27,14 +27,14 @@ export const Header: React.FC<Props> = ({ onSearch }) => {
   };
 
   return (
-    <div className="w-full my-10 px-10 flex justify-between">
+    <div className="w-full items-center my-10 px-10 flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
       <div className="flex-shrink-0">
         <Image src="/Rm.png" alt="header image" width={200} height={200} />
       </div>
-      <div className="flex-grow m-5">
+      <div className="flex-grow">
         <Search onSearch={onSearch} />
       </div>
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-2">
         <button onClick={handleSignOut} className="flex items-center space-x-2">
           <Image
             className="rounded-full border border-text-b"

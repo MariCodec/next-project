@@ -7,7 +7,7 @@ type Props = {
 };
 export const Card: React.FC<Props> = ({ character }) => {
   return (
-    <div className="relative group flex w-full max-w-xs">
+    <div className="relative group flex w-full justify-center max-w-xs">
       <Link
         href={`/character/${character.id}`}
         className="text-white p-4 border border-custom-main rounded-lg shadow-lg hover:shadow-custom transition-shadow duration-300 transform hover:scale-105 transition-transform duration-300"
