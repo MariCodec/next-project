@@ -23,9 +23,7 @@ const Login = () => {
 
   const googleLogin = async () => {
     try {
-      const result = await signInWithPopup(auth, googleProvider);
-
-      console.log(result);
+      await signInWithPopup(auth, googleProvider);
     } catch (error) {
       console.log(error);
     }
@@ -33,8 +31,7 @@ const Login = () => {
 
   const handleGuestLogin = async () => {
     try {
-      const result = await signInAnonymously(auth);
-
+      await signInAnonymously(auth);
       router.push("/");
     } catch (error) {
       console.error("Error logging in as guest:", error);
