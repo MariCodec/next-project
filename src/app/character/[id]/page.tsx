@@ -3,6 +3,7 @@ import { Character } from "@/src/types/character";
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import NotFoundPage from "../../not-found";
 
 type Props = {
   params: {
@@ -26,14 +27,10 @@ const CharacterPage = async ({ params }: Props) => {
     error = "Error loading character";
   }
 
-  if (error) {
-    return <div className="text-custom-main text-center mt-10">{error}</div>;
-  }
-
-  if (!character) {
+  if (!character || error) {
     return (
       <div className="text-custom-main text-center mt-10">
-        No character data
+        <NotFoundPage />
       </div>
     );
   }

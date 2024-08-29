@@ -12,10 +12,10 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (user !== undefined) {
-      // Зміна на перевірку undefined
+ 
       setLoading(false);
       if (user === null) {
-        // Якщо користувача немає, перенаправляємо
+
         router.push("/login");
       }
     }

@@ -5,6 +5,7 @@ import { Search } from "./Search";
 import { useRouter } from "next/navigation";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
+import { useAuthorization } from "../hooks/useAuth";
 
 type Props = {
   onSearch: (query: string) => void;
@@ -12,7 +13,10 @@ type Props = {
 
 export const Header: React.FC<Props> = ({ onSearch }) => {
   const router = useRouter();
+  const { user } = useAuthorization();
 
+  const userPhotoURL = user?.photoURL;
+  console.log(userPhotoURL);
   const handleSignOut = async () => {
     try {
       await signOut(auth);
@@ -34,10 +38,10 @@ export const Header: React.FC<Props> = ({ onSearch }) => {
         <button onClick={handleSignOut} className="flex items-center space-x-2">
           <Image
             className="rounded-full border border-text-b"
-            src="/notExisting.png"
+            src={userPhotoURL}
             alt="Profile image"
-            width={30}
-            height={30}
+            width={60}
+            height={60}
           />
           <h2 className="border border-text-b p-2 rounded-md bg-custom-main text-white">
             SignOut

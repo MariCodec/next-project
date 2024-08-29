@@ -10,7 +10,7 @@ type PaginationProps = {
 export const Pagination: React.FC<PaginationProps> = ({
   pageCount,
   onPageChange,
-  page
+  page,
 }) => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -46,9 +46,6 @@ export const Pagination: React.FC<PaginationProps> = ({
          hover:bg-custom-main hover:text-white w-10 h-10 flex
          items-center justify-center rounded-md m-2
          "
-      // breakLabel={
-      //   <span className="mr-4">...</span>
-      // }
       activeClassName="bg-custom-main text-white"
       forcePage={page - 1}
       pageRangeDisplayed={isMobile ? 1 : 3}

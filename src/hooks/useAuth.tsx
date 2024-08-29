@@ -4,11 +4,10 @@ import { auth } from "../firebase";
 
 export const useAuthorization = () => {
   const [firebaseUser] = useAuthState(auth);
-  const [user, setUser] = useState<any>(undefined); // Початковий стан - undefined
+  const [user, setUser] = useState<any>(undefined);
 
   useEffect(() => {
     if (firebaseUser !== undefined) {
-      // Додаємо перевірку на undefined
       setUser(firebaseUser);
     } else {
       setUser(null);
