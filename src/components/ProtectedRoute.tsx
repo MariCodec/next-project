@@ -12,12 +12,10 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (user !== undefined) {
- 
-      setLoading(false);
       if (user === null) {
-
         router.push("/login");
       }
+      setLoading(false);
     }
   }, [user, router]);
 
